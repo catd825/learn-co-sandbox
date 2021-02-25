@@ -1,0 +1,41 @@
+Controller
+
+
+  def new
+    @user = User.new
+  end
+
+
+  def create
+    @user = User.new(user_params)
+    
+    if @user.valid?
+      @user.save
+      redirect_to user_path(@user)
+    else
+      flash[:my_errors] = @user.errors.full_messages
+      redirect_to new_user_path
+    end
+    
+  end
+  
+  /tweets/:id    tweet_path 
+  /tweets/       tweets
+  
+  
+  show page: /tweets/:tweet_id/comments/:comment_id/likes      
+  index page: /tweets/:tweet_id/comments   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
